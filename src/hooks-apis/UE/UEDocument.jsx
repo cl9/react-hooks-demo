@@ -6,14 +6,11 @@ import HightlightCode from '../HighlightCode'
 function UEDocument(props) {
   const [title, setTitle] = useState('default')
   
-  useEffect(() => {
-    document.title = `your input ducument title is ${title}`
-  })
-
-  return (
-    <div>
-      <HightlightCode
-        classCode={`
+  const codes = [
+    {
+      codeTitle: 'React Class',
+      codeDesc: 
+      `
           componentDidMount(){
             document.title = \`your input ducument title is \${title}\`
           }
@@ -21,12 +18,27 @@ function UEDocument(props) {
           componentDidUpdate(){
             document.title = \`your input ducument title is \${title}\`
           }
-        `}
-        hooksCode={`
+      `,
+    },
+    {
+      codeTitle: 'React Hooks',
+      codeDesc: 
+      `
           useEffect(() => {
             document.title = \`your input ducument title is \${title}\`
           })
-        `}
+      `,
+    }
+  ]
+
+  useEffect(() => {
+    document.title = `your input ducument title is ${title}`
+  })
+
+  return (
+    <div>
+      <HightlightCode
+        codes={codes}
       />
       <Input.Search placeholder="input document title" enterButton="set document title" size="middle" onSearch={setTitle}/>
     </div>

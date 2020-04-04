@@ -3,18 +3,17 @@ import PropTypes from 'prop-types'
 import {
   List,
 } from 'antd'
-import { CaretRightOutlined } from '@ant-design/icons';
+import { navList } from './AppConfig.js'
 import {
   Link
 } from 'react-router-dom'
 
 function Main(props) {
-  const navList = require('./AppConfig.json')
-
   const _renderItem = (item,index) => (
     <Link to={{
       pathname: item.mainPath,
-      subTitles: item.subTitles
+      subTitles: item.subTitles,
+      overview: item.overview
     }}>
       <List.Item
         key={index}

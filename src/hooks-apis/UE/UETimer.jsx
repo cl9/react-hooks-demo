@@ -8,21 +8,11 @@ import HightlightCode from '../HighlightCode'
 function UETimer(props) {
   const [show, isShow] = useState(false)
  
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      isShow(true)
-    }, 2000);
-
-    return () => {
-      isShow(false)
-      clearTimeout(timer)
-    }
-  },[])
-
-  return (
-    <div>
-      <HightlightCode
-        classCode={`
+  const codes = [
+    {
+      codeTitle: 'React Class',
+      codeDesc: 
+      `
           componentDidMount(){
             if(this.timer){
               return 
@@ -43,8 +33,12 @@ function UETimer(props) {
               })
             }
           }
-        `}
-        hooksCode={`
+      `,
+    },
+    {
+      codeTitle: 'React Hooks',
+      codeDesc: 
+      `
           useEffect(() => {
             const timer = setTimeout(() => {
               isShow(true)
@@ -55,7 +49,25 @@ function UETimer(props) {
               clearTimeout(timer)
             }
           },[])
-        `}
+      `,
+    }
+  ]
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      isShow(true)
+    }, 2000);
+
+    return () => {
+      isShow(false)
+      clearTimeout(timer)
+    }
+  },[])
+
+  return (
+    <div>
+      <HightlightCode
+        codes={codes}
       />
       <span>2s后弹出一个warning</span>
       {show ? 

@@ -8,21 +8,23 @@ SyntaxHighlighter.registerLanguage('javascript',js)
 function HighlightCode(props) {
   return (
     <div>
-      <h2>React Class</h2>
-      <SyntaxHighlighter language="javascript" style={docco}>
-        {props.classCode}
-      </SyntaxHighlighter>
-      <h2>React Hooks</h2>
-      <SyntaxHighlighter language="javascript" style={docco}>
-        {props.hooksCode}
-      </SyntaxHighlighter>
+        {props.codes.map((code,index) => {
+          return <div key={index}>
+            <h2>{code.codeTitle}</h2>
+            <SyntaxHighlighter language="javascript" style={docco}>
+              {code.codeDesc}
+            </SyntaxHighlighter>
+          </div>
+        })}
     </div>
   )
 }
 
 HighlightCode.propTypes = {
-  classCode: PropTypes.string.isRequired,
-  hooksCode: PropTypes.string.isRequired
+  codes: PropTypes.arrayOf(PropTypes.shape({
+    codeDesc: string,
+    codeTitle: string
+  })),
 }
 
 export default HighlightCode

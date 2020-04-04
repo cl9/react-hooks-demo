@@ -6,6 +6,7 @@ import {
 import {
   Link
 } from 'react-router-dom'
+import HighlightCode from './hooks-apis/HighlightCode'
 
 function SubMain(props) {
   console.log(props.locaiton)
@@ -22,23 +23,31 @@ function SubMain(props) {
   )
 
   return (
-    <List
-      itemLayout="vertical"
-      size="large"
-      pagination={{
-        onChange: page => {
-          console.log(page);
-        },
-        pageSize: 10,
-      }}
-      dataSource={props.location.subTitles}
-      footer={
-        <div>
-          <b>React Hooks Demo</b> 
-        </div>
-      }
-      renderItem={_renderItem}
-  />
+    <div>
+      <HighlightCode codes={
+        [{
+          codeTitle: '',
+          codeDesc: props.location.overview || ''
+        }]
+      }/>
+      <List
+        itemLayout="vertical"
+        size="large"
+        pagination={{
+          onChange: page => {
+            console.log(page);
+          },
+          pageSize: 10,
+        }}
+        dataSource={props.location.subTitles}
+        footer={
+          <div>
+            <b>React Hooks Demo</b> 
+          </div>
+        }
+        renderItem={_renderItem}
+        />
+    </div>
   )
 }
 

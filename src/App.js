@@ -8,13 +8,17 @@ import {
   UEDocument,
   UETimer,
   UEListener,
-  UCShareData
+  UCShareData,
+  URBasic,
+  URBasic2,
+  URComplex,
+  URNetwork,
+  URWithContext,
 } from './hooks-apis'
 import Main from './Main'
 import SubMain from './SubMain'
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
 } from "react-router-dom";
 
@@ -33,7 +37,12 @@ function App() {
         <Route exact path='/useEffect/listener' component={UEListener} />
         <Route exact path='/useContext' component={SubMain} />
         <Route exact path='/useContext/shareData' component={UCShareData} />
-        <Route exact path='/useContext/normal' component={USNormal} />
+        <Route exact path='/useReducer' component={SubMain} />
+        <Route exact path='/useReducer/basic' component={URBasic} />
+        <Route exact path='/useReducer/basic2' component={URBasic2} />
+        <Route exact path='/useReducer/complex' component={URComplex} />
+        <Route exact path='/useReducer/complex2' component={URNetwork} />
+        <Route exact path='/useReducer/withContext' component={URWithContext} />
     </Router>
   );
 }

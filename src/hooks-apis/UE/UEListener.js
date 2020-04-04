@@ -6,6 +6,35 @@ import HightlightCode from '../HighlightCode'
 function UEListener(props) {
   const [keyList, setKeyList] = useState([])
 
+  const codes = [
+    {
+      codeTitle: 'React Class',
+      codeDesc: 
+      `
+          componentDidMount(){
+            document.addEventListener('keypress', keyPress)
+          }
+        
+          componentWillUnmount(){
+            document.removeEventListener('keypress', keyPress)
+          }
+      `,
+    },
+    {
+      codeTitle: 'React Hooks',
+      codeDesc: 
+      `
+          useEffect(() => {
+            document.addEventListener('keypress', keyPress)
+        
+            return () => {
+              document.removeEventListener('keypress', keyPress)
+            }
+          })
+      `,
+    }
+  ]
+
   const keyPress = (e) => {
     setKeyList(previousKeyList => [
       e.key,
@@ -24,24 +53,7 @@ function UEListener(props) {
   return (
     <div>
       <HightlightCode
-        classCode={`
-        componentDidMount(){
-          document.addEventListener('keypress', keyPress)
-        }
-      
-        componentWillUnmount(){
-          document.removeEventListener('keypress', keyPress)
-        }
-        `}
-        hooksCode={`
-        useEffect(() => {
-          document.addEventListener('keypress', keyPress)
-      
-          return () => {
-            document.removeEventListener('keypress', keyPress)
-          }
-        })
-      `}
+        codes={codes}
       />
       <Card style={{ width: 300 }}>
         {keyList.map(((pressedKey,index) => {
