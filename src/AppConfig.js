@@ -100,8 +100,8 @@ export const navList = [{
     )
     `,
     "subTitles": [{
-        "path": "/7",
-        "title": "一般的useState,直接修改state的值，且state为number、string、boolean等基本类型"
+        "path": "/callback",
+        "title": "减少callback引发的reRender"
       },
       {
         "path": "/8",
