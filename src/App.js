@@ -14,6 +14,7 @@ import {
   URComplex,
   URNetwork,
   URWithContext,
+  OptimizedCallback
 } from './hooks-apis'
 import Main from './Main'
 import SubMain from './SubMain'
@@ -43,6 +44,8 @@ function App() {
         <Route exact path='/useReducer/complex' component={URComplex} />
         <Route exact path='/useReducer/complex2' component={URNetwork} />
         <Route exact path='/useReducer/withContext' component={URWithContext} />
+        <Route exact path='/useCallback' component={SubMain} />
+        <Route exact path='/useCallback/callback' component={OptimizedCallback} />
     </Router>
   );
 }
