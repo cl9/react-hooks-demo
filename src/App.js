@@ -14,7 +14,11 @@ import {
   URComplex,
   URNetwork,
   URWithContext,
-  OptimizedCallback
+  OptimizedCallback,
+  MemoComplexCalc,
+  MEMOReference,
+  URFDom,
+  URFVariable
 } from './hooks-apis'
 import Main from './Main'
 import SubMain from './SubMain'
@@ -46,6 +50,12 @@ function App() {
         <Route exact path='/useReducer/withContext' component={URWithContext} />
         <Route exact path='/useCallback' component={SubMain} />
         <Route exact path='/useCallback/callback' component={OptimizedCallback} />
+        <Route exact path='/useMemo' component={SubMain} />
+        <Route exact path='/useMemo/complexCalc' component={MemoComplexCalc} />
+        <Route exact path='/useMemo/reference' component={MEMOReference} />
+        <Route exact path='/useRef' component={SubMain} />
+        <Route exact path='/useRef/dom' component={URFDom} />
+        <Route exact path='/useRef/variable' component={URFVariable} />
     </Router>
   );
 }
