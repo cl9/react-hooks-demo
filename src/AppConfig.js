@@ -101,11 +101,54 @@ export const navList = [{
     `,
     "subTitles": [{
         "path": "/callback",
-        "title": "减少callback引发的reRender"
+        "title": "减少callback引发的重新渲染"
+      }
+    ]
+  },
+  {
+    "mainTitle": "useMemo",
+    "mainPath": "useMemo",
+    "overview": 
+    `
+    const cache = useMemo(() => function, input)
+
+    应该使用 useMemo 的场景：
+    1. 保持引用相等，防止不必要的重新渲染方面
+    2. 成本很高的计算
+    无需使用 useMemo 的场景
+    1. 如果返回的值是原始值： string、boolean、null、undefined、
+    number、symbol（不包括动态声明的 Symbol）
+    2. 仅在组件内部用到的 object、array、函数等（没有作为 props 传递给子组件）
+    ,且没有用到其他 Hook 的依赖数组中
+    3. 根据更改的prop或值重新计算该值，如果是不需要在props更改时重新计算
+    可以用useRef
+    `,
+    "subTitles": [
+      {
+        "path": "/complexCalc",
+        "title": "缓存复杂耗时计算"
       },
       {
-        "path": "/8",
-        "title": "useState依赖于之前的state"
+        "path": "/reference",
+        "title": "保持引用相等，防止不必要的重新渲染方面"
+      }
+    ]
+  },
+  {
+    "mainTitle": "useRef",
+    "mainPath": "useRef",
+    "overview": 
+    `
+    const ref = useRef(initialValue)
+    `,
+    "subTitles": [
+      {
+        "path": "/dom",
+        "title": "保持DOM节点引用"
+      },
+      {
+        "path": "/variable",
+        "title": "保存一些值的引用，并对它进行读写"
       }
     ]
   }

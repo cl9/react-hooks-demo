@@ -12,4 +12,8 @@ export {default as URComplex} from './UR/URComplex'
 export {default as URNetwork} from './UR/URNetwork'
 export {default as URWithContext} from './UR/URWithContext'
 export {default as OptimizedCallback} from './OPT/CB/OptimizedCallback'
+export {default as MemoComplexCalc} from './OPT/MEMO/MemoComplexCalc'
+export {default as MEMOReference} from './OPT/MEMO/MEMOReference'
+export {default as URFDom} from './URF/URFDom'
+export {default as URFVariable} from './URF/URFVariable'
 
